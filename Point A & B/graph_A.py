@@ -1,4 +1,4 @@
-#This code can be tested writting this command spark-submit graph_A.py "2017-05-12 14:00:00" --mastern yarn
+#This code can be tested writting this command spark-submit graph_A.py "2017-05-12 14:00:00"
 
 from pyspark import SparkConf, SparkContext
 from pyspark.streaming import StreamingContext
@@ -13,7 +13,7 @@ except ImportError:
     import simplejson as json
 import sys
 import os 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars $SPARK_HOME/jars/spark-streaming-kafka-0-8-assembly_2.11.jar pyspark-shell'
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--mastern yarn --jars $SPARK_HOME/jars/spark-streaming-kafka-0-8-assembly_2.11.jar pyspark-shell'
 
 def graph(datetimetest):
     spark = SparkSession.builder.config(conf=sc.getConf()).enableHiveSupport().getOrCreate()
